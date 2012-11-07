@@ -1,10 +1,14 @@
 {
   "author": "Markus Ullmark",
   "name": "fluent-time",
+  "description": "a fluent api to datetime and ",
   "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/ullmark/fluent-time.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ullmark/fluent-time.js/issues"
   },
   "dependencies": {},
   "devDependencies": {

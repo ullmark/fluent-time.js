@@ -7,20 +7,23 @@
   // ------------
 
   var FluentTime = {
-    every: function(val) {
-      return new FluentTime.Interval(val);
+
+    VERSION: "0.0.1",
+
+    every: function(leap) {
+      return new FluentTime.Interval(leap);
     },
 
-    after: function(val) {
-      return new FluentTime.TimeOut(val);
+    after: function(leap) {
+      return new FluentTime.TimeOut(leap);
     }
   };
 
   // TimeLeap
   // --------
 
-  FluentTime.TimeLeap = function(val) {
-    this.leap = val;
+  FluentTime.TimeLeap = function(leap) {
+    this.leap = leap;
     this.ms = 0;
   };
 
@@ -47,8 +50,8 @@
     return this;
   };
 
-  FluentTime.TimeLeap.prototype.and = function(val) {
-    this.leap = val;
+  FluentTime.TimeLeap.prototype.and = function(leap) {
+    this.leap = leap;
     return this;
   };
 

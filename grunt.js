@@ -18,6 +18,12 @@ module.exports = function(grunt) {
         }
       }
     },
+    min: {
+      dist: {
+        src: ['fluent-time.js'],
+        dest: 'fluent-time.min.js'
+      }
+    },
     watch: {
       files: ['spec/**/*.js', 'fluent-time.js'],
       tasks:'lint simplemocha'
