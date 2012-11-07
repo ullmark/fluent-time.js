@@ -1,0 +1,22 @@
+{
+  "author": "Markus Ullmark",
+  "name": "fluent-time",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ullmark/fluent-time.js.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.6.0",
+    "should": "~1.2.1"
+  },
+  "optionalDependencies": {
+    "grunt": "~0.3.17",
+    "grunt-mocha": "~0.1.7",
+    "grunt-simple-mocha": "~0.2.0"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
