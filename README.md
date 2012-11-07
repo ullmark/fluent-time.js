@@ -27,7 +27,7 @@ after(10).seconds(function() {
 
 (The MIT License)
 
-Copyright (c) 2011 Markus Ullmark &lt;ullmark@gmail.com&gt;
+Copyright (c) 2011 Markus Ullmark
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
