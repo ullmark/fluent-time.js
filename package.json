@@ -2,7 +2,7 @@
   "author": "Markus Ullmark",
   "name": "fluent-time",
   "description": "a fluent api to datetime and ",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/ullmark/fluent-time.js.git"
@@ -18,7 +18,8 @@
   "optionalDependencies": {
     "grunt": "~0.3.17",
     "grunt-mocha": "~0.1.7",
-    "grunt-simple-mocha": "~0.2.0"
+    "grunt-simple-mocha": "~0.2.0",
+    "grunt-bump": "0.0.1"
   },
   "engines": {
     "node": "*"

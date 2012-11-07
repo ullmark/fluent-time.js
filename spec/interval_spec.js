@@ -7,26 +7,20 @@ describe("Interval", function() {
 
     it("cancels the interval", function(done) {
       var counter = 0;
-      
+
       every(10).milliseconds(function() {
         counter++;
       })
         .cancel();
 
-      done();
+      setTimeout(function() {
+        counter.should.equal(0);
+        done();
+      }, 110);
     });
 
   });
 
-  it("provides a counter to callback", function(done) {
-    var counter = 0;
-
-    every(10).milliseconds(function(times) {
-      counter++;
-      counter.should.equal(times);
-    });
-
-    done();
-  });
+  it("provides a counter to callback");
 
 });

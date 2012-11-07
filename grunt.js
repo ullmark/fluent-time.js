@@ -3,6 +3,10 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    pkg: '<json:package.json>',
+    meta: {
+      banner: '/*! <%= pkg.name %> - v<%= pkg.version %> */'
+    },
     lint: {
       files: ['grunt.js', 'fluent-time.js', '<simplemocha:all.src>']
     },
@@ -20,7 +24,7 @@ module.exports = function(grunt) {
     },
     min: {
       dist: {
-        src: ['fluent-time.js'],
+        src: ['<banner>', 'fluent-time.js'],
         dest: 'fluent-time.min.js'
       }
     },
@@ -48,6 +52,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-simple-mocha');
 
   // Default task.
