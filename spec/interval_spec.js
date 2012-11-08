@@ -34,8 +34,9 @@ describe("Interval", function() {
     }, 350);
   });
 
-
-
-  it("provides a counter to callback");
+  it("provides correct amount of times executed to callback", function(done) {
+    
+    done();
+  });
 
 });

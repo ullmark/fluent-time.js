@@ -137,7 +137,7 @@
     var _this = this;
     this.timeout = setTimeout(function() {
       _this.schedule(fn);
-      fn();
+      fn(++_this.times);
     }, this.ms);
   };
 
