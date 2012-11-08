@@ -3,15 +3,12 @@
 
   'use strict';
 
-  // ### inherit
-  // a simple *inheritance* helper
+  // ### extends
+  // a simple prototype *extender*
   var __extends = function(parent, child) {
     for(var key in parent.prototype) {
       child.prototype[key] = parent.prototype[key];
     }
-    child.__super = function() {
-      parent.apply(this, arguments);
-    };
   };
 
   // Fluent Time
@@ -39,6 +36,8 @@
 
   // ### days
   FluentTime.TimeLeap.prototype.days = function(fn) {
+    this.ms += this.leap * 86400000;
+    return this;
   };
 
   // ### hours
@@ -92,6 +91,18 @@
   };
 
   __extends(FluentTime.TimeOut, FluentTime.Interval);
+
+  FluentTime.Interval.prototype.nextScheduled = function() {
+
+  };
+
+  FluentTime.Interval.prototype.cancelAll = function() {
+
+  };
+
+  FluentTime.Interval.prototype.cancelNext = function() {
+
+  };
 
   if (module && module.exports) {
     module.exports = FluentTime;

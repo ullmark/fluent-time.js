@@ -4,11 +4,26 @@ fluent time works as a wrapper around `Date`, `setTimeout` and `setInterval` and
 ### intervals
 
 ```javascript
-// runs the provided function every 5 minutes, and provides how many times it has run so far.
-every(5).minutes(function(times) {
-  
+// runs the provided function every 5 minutes, and cancels execution after 10 times.
+every(5).minutes(function(times, interval) {
+  // some code here...
+  // cancel all, killing the interval
+  if (times === 10) {
+    interval.cancelAll();
+  }
+});
+```
+
+```javascript
+// next time the function runs can be retrieved
+var interval = every(2).days(function(times, interval) {
+  console.log(interval.nextTime()); // => Date object representing next execution.
 });
 
+interval.nextTime(); // => Date object representing next execution.
+```
+
+```javascript
 // if the code takes longer than than the interval it will run the task as fast 
 // as it can.
 every(5).seconds(function() {

@@ -23,6 +23,11 @@ describe("TimeLeap", function() {
     new FluentTime.TimeLeap(5).hours().ms.should.equal(18000000);
   });
 
+  it("calculates correct on days", function() {
+    new FluentTime.TimeLeap(3).days().ms.should.equal(259200000);
+    new FluentTime.TimeLeap(5).days().ms.should.equal(432000000);
+  });
+
   it("combines correct", function() {
     new FluentTime.TimeLeap(3).hours().and(4).minutes()
       .ms.should.equal(11040000);
