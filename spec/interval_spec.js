@@ -7,7 +7,6 @@ describe("Interval", function() {
 
     it("cancels the interval", function(done) {
       var counter = 0;
-
       every(10).milliseconds(function() {
         counter++;
       })
@@ -16,10 +15,26 @@ describe("Interval", function() {
       setTimeout(function() {
         counter.should.equal(0);
         done();
-      }, 110);
+      }, 15);
     });
 
   });
+
+  it("executes the function on the provided interval", function(done) {
+    var counter = 0;
+    var interval = every(100).milliseconds(function() {
+      counter++;
+    });
+
+    // after 350ms it should have executed three times...
+    setTimeout(function() {
+      interval.cancel();
+      counter.should.equal(3);
+      done();
+    }, 350);
+  });
+
+
 
   it("provides a counter to callback");
 

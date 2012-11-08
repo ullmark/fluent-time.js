@@ -36,4 +36,11 @@ describe("TimeLeap", function() {
       .ms.should.equal(11045000);
   });
 
+  it("calculates the leap occurance correctly", function() {
+    var now = new Date(Date.now());
+    var timeLeap = new FluentTime.TimeLeap(2).hours();
+    var diff = timeLeap.occurs() - now;
+    diff.should.equal(7200000);
+  });
+
 });
