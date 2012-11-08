@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['spec/**/*.js', 'fluent-time.js'],
-      tasks:'lint simplemocha'
+      tasks:'lint simplemocha min'
     },
     jshint: {
       options: {

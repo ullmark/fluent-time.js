@@ -1,12 +1,17 @@
 # fluent-time.js
 fluent time works as a wrapper around `Date`, `setTimeout` and `setInterval` and aims to provide a simpler api for them.
 
-### installation
-coming soon...
+## installation
+#### node.js
+```
+npm install fluent-time
+```
 
-### accessing the api.
-we don't want to pollute your global/module scope without asking, but it gives the best looking fluent code. So
-you can do it yourself, like this;
+#### clientside
+download and include `fluent-time.js` or `fluent-time.min.js`.
+
+## accessing the api.
+we don't want to pollute your global/module scope without asking, but it gives the best looking fluent code. So you can do it yourself, like this;
 
 #### node.js
 ```javascript
@@ -17,7 +22,7 @@ var every = require('fluent-time').every;
 var every = FluentTime.every;
 ```
 
-### intervals
+## intervals
 
 ```javascript
 every(5).seconds(function() {
@@ -51,7 +56,7 @@ var interval = every(2).days(function(times, interval) {
 interval.nextTime(); // => Date object representing next execution.
 ```
 
-### timeouts
+## timeouts
 
 ```javascript
 // runs the provided function after 10 seconds

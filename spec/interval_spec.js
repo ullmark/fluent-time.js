@@ -35,8 +35,16 @@ describe("Interval", function() {
   });
 
   it("provides correct amount of times executed to callback", function(done) {
-    
-    done();
+    var counter = 0;
+    every(10).milliseconds(function(times) {
+      counter++;
+      counter.should.equal(times);
+    });
+
+    setTimeout(function() {
+      counter.should.equal(5);
+      done();
+    }, 55);
   });
 
 });

@@ -95,7 +95,7 @@
   };
 
   // ### schedule
-  // this is an empty schedule function that will be overriden in 
+  // this is an empty schedule function that will be overriden in
   // replaced in `TimeOut` and `Interval`.
   FluentTime.TimeLeap.prototype.schedule = function(fn) {};
 
@@ -115,7 +115,9 @@
   };
 
   FluentTime.TimeOut.prototype.cancel = function() {
-    clearTimeout(this.timeout);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   };
 
   FluentTime.TimeOut.prototype.resume = function() {

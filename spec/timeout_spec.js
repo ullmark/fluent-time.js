@@ -21,13 +21,22 @@ describe("Timeout", function() {
       var wasExecuted = false;
       var timeout = after(30).milliseconds(function() {
         wasExecuted = true;
-      }).cancel();
+      });
 
       setTimeout(function() {
         timeout.cancel();
         wasExecuted.should.equal(false);
         done();
       }, 10);
+    });
+
+    it("doesn't throw when canceling multiple times", function(done) {
+      var timeout = after(10).milliseconds(function() {});
+      (function() {
+        timeout.cancel();
+        timeout.cancel();
+      }).should.not.throw();
+      done();
     });
 
   });
