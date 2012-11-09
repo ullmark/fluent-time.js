@@ -2,7 +2,7 @@
   "author": "Markus Ullmark",
   "name": "fluent-time",
   "description": "a fluent api to datetime and ",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "keywords": [
     "util",
     "fluent",
