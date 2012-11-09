@@ -1,5 +1,5 @@
 # fluent-time.js
-fluent time works as a wrapper around `Date`, `setTimeout` and `setInterval` and aims to provide a simpler api for them.
+fluent time works as a wrapper around `setTimeout` and `setInterval` and aims to provide a simpler api for them.
 
 ## installation
 #### node.js
@@ -23,7 +23,6 @@ var every = FluentTime.every;
 ```
 
 ## intervals
-the interval handling in 
 
 ```javascript
 every(5).seconds(function() {
@@ -36,21 +35,24 @@ every(4).hours().and(2).minutes(function() {
 ```
 
 ```javascript
-every(5).minutes(function(interval) {
-  if(someCondition) {
-    interval.skip(2); // skip the next two executions.
-  }
-});
-```
-
-```javascript
 every(5).seconds(function(interval) {
   interval.times; // will be a number of how many times the interval has occured.
 });
 ```
 
-## timeouts
+```javascript
+every(5).minutes(function(interval) {
+  if(someCondition) {
+    interval.skip(2); // skip the next two executions.
+  }
 
+  if (interval.times === 100) {
+    interval.cancel(); // cancel the interval.
+  }
+});
+```
+
+## timeouts
 ```javascript
 // runs the provided function after 10 seconds
 after(10).seconds(function() {
@@ -61,7 +63,7 @@ after(10).seconds(function() {
 
 (The MIT License)
 
-Copyright (c) 2011 Markus Ullmark
+Copyright (c) 2012 Markus Ullmark
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
