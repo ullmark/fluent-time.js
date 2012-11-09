@@ -130,6 +130,7 @@
   FluentTime.Interval = function(val) {
     FluentTime.TimeOut.apply(this, arguments);
     this.times = 0;
+    this.skippingNext = 0;
   };
 
   __extends(FluentTime.TimeOut, FluentTime.Interval);
@@ -138,9 +139,30 @@
   FluentTime.Interval.prototype.schedule = function(fn) {
     var _this = this;
     this.timeout = setTimeout(function() {
+      // only run the code and increase the times run 
+      // when not supposed to skip.
+      if (!this.skippingNext) {
+        _this.times++;
+        fn(_this);
+      } 
+
+      // decrease the skip amount
+      else {
+        _this.skippingNext--;
+      }
+
+      // schedule next execution.
       _this.schedule(fn);
-      fn(++_this.times);
     }, this.ms);
+  };
+
+  // ### skip
+  FluentTime.Interval.prototype.skip = function(number) {
+    if (typeof(number) !== 'number' || number < 1)
+      throw new Error('You must provide a non negative number');
+
+    this.skippingNext += number;
+    return this;
   };
 
   if (module && module.exports) {

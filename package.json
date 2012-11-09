@@ -1,14 +1,24 @@
 {
-  "author"              : "Markus Ullmark",
-  "name"                : "fluent-time",
-  "description"         : "a fluent api to datetime and ",
-  "version"             : "0.0.2",
-  "keywords"            : ["util", "fluent", "timeout", "interval"],
-  "repository"          : { "type": "git", "url": "git://github.com/ullmark/fluent-time.js.git" },
-  "bugs"                : { "url": "https://github.com/ullmark/fluent-time.js/issues" },
-  "main"                : "fluent-time.js",
-  "dependencies"        : {},
-  "devDependencies"     : {
+  "author": "Markus Ullmark",
+  "name": "fluent-time",
+  "description": "a fluent api to datetime and ",
+  "version": "0.0.3",
+  "keywords": [
+    "util",
+    "fluent",
+    "timeout",
+    "interval"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ullmark/fluent-time.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ullmark/fluent-time.js/issues"
+  },
+  "main": "fluent-time.js",
+  "dependencies": {},
+  "devDependencies": {
     "mocha": "~1.6.0",
     "should": "~1.2.1"
   },
