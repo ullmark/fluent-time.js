@@ -22,12 +22,7 @@
     "mocha": "~1.6.0",
     "should": "~1.2.1"
   },
-  "optionalDependencies": {
-    "grunt": "~0.3.17",
-    "grunt-mocha": "~0.1.7",
-    "grunt-simple-mocha": "~0.2.0",
-    "grunt-bump": "0.0.1"
-  },
+  "optionalDependencies": {},
   "engines": {
     "node": "*"
   }
