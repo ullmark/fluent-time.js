@@ -109,8 +109,9 @@
   __extends(FluentTime.TimeLeap, FluentTime.TimeOut);
 
   FluentTime.TimeOut.prototype.schedule = function(fn) {
+    var _this = this;
     this.timeout = setTimeout(function() {
-      fn();
+      fn(_this);
     }, this.ms);
   };
 
@@ -118,10 +119,6 @@
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
-  };
-
-  FluentTime.TimeOut.prototype.resume = function() {
-
   };
 
   // Interval
@@ -139,10 +136,12 @@
   FluentTime.Interval.prototype.schedule = function(fn) {
     var _this = this;
     this.timeout = setTimeout(function() {
-      // only run the code and increase the times run 
+      _this.times++;
+      // schedule next execution.
+      _this.schedule(fn);
+      // only run the code
       // when not supposed to skip.
-      if (!this.skippingNext) {
-        _this.times++;
+      if (!_this.skippingNext) {
         fn(_this);
       } 
 
@@ -150,16 +149,14 @@
       else {
         _this.skippingNext--;
       }
-
-      // schedule next execution.
-      _this.schedule(fn);
     }, this.ms);
   };
 
   // ### skip
   FluentTime.Interval.prototype.skip = function(number) {
-    if (typeof(number) !== 'number' || number < 1)
+    if (typeof(number) !== 'number' || number < 1) {
       throw new Error('You must provide a non negative number');
+    }
 
     this.skippingNext += number;
     return this;

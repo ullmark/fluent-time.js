@@ -49,7 +49,8 @@ module.exports = function(grunt) {
         window: true,
         module: true,
         setTimeout: true,
-        clearTimeout: true
+        clearTimeout: true,
+        console: true
       }
     }
   });

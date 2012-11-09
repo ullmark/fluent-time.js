@@ -38,12 +38,9 @@ every(5).minutes(function(interval) {
 ```
 
 ```javascript
-// next time the function runs can be retrieved
-var interval = every(2).days(function(times, interval) {
-  console.log(interval.nextTime()); // => Date object representing next execution.
+every(5).seconds(function(interval) {
+  interval.times; // will be a number of how many times the interval has occured.
 });
-
-interval.nextTime(); // => Date object representing next execution.
 ```
 
 ## timeouts
