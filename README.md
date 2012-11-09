@@ -2,13 +2,7 @@
 fluent time works as a wrapper around `Date`, `setTimeout` and `setInterval` and aims to provide a simpler api for them.
 
 ## installation
-#### node.js
-```
-npm install fluent-time
-```
-
-#### clientside
-download and include `fluent-time.js` or `fluent-time.min.js`.
+coming very soon...
 
 ## accessing the api.
 we don't want to pollute your global/module scope without asking, but it gives the best looking fluent code. So you can do it yourself, like this;
@@ -23,6 +17,7 @@ var every = FluentTime.every;
 ```
 
 ## intervals
+the interval handling in 
 
 ```javascript
 every(5).seconds(function() {
@@ -35,14 +30,9 @@ every(4).hours().and(2).minutes(function() {
 ```
 
 ```javascript
-// runs the provided function every 5 minutes, skips the second time
-every(5).minutes(function(times, interval) {
-  if (times === 2) {
-    interval.cancelNext();
-  }
-
-  else if (times === 10) {
-    interval.cancel();
+every(5).minutes(function(interval) {
+  if(someCondition) {
+    interval.skip(2); // skip the next two executions.
   }
 });
 ```
