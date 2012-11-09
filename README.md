@@ -2,7 +2,13 @@
 fluent time works as a wrapper around `Date`, `setTimeout` and `setInterval` and aims to provide a simpler api for them.
 
 ## installation
-coming very soon...
+#### node.js
+```
+npm install fluent-time
+```
+
+#### clientside
+download `fluent-time.js` or `fluent-time.min.js` and include it.
 
 ## accessing the api.
 we don't want to pollute your global/module scope without asking, but it gives the best looking fluent code. So you can do it yourself, like this;
