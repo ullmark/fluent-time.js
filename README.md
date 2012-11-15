@@ -23,7 +23,6 @@ var every = FluentTime.every;
 ```
 
 ## intervals
-
 ```javascript
 every(5).seconds(function() {
   // code...

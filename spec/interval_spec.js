@@ -49,6 +49,22 @@ describe("Interval", function() {
 
   describe("#skip", function() {
 
+    it("defaults to one skip if no number was provided", function(done) {
+      var counter = 0;
+      every(10).milliseconds(function(interval) {
+        counter++;
+        interval.skip();
+
+        if (interval.times === 2) { 
+          interval.cancel();
+        }
+      });
+
+      setTimeout(function() {
+        counter.should.equal(1);
+      }, 50);
+    });
+
     it("causes the function not to be executed the amount of times provided", function(done) {
       var counter = 0;
       every(50).milliseconds(function(interval) {

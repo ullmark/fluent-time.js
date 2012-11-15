@@ -28,6 +28,7 @@
 
   // TimeLeap
   // --------
+  // 
 
   FluentTime.TimeLeap = function(leap) {
     this.leap = leap;
@@ -35,6 +36,7 @@
   };
 
   // ### days
+
   FluentTime.TimeLeap.prototype.days = function(fn) {
     this.ms += this.leap * 86400000;
     this.leap = 0;
@@ -83,7 +85,7 @@
   // ### finalizeIfCallback
   FluentTime.TimeLeap.prototype.finalizeIfCallback = function(fn) {
     if (fn && typeof(fn) === 'function') {
-      this.schedule(fn);
+      this.schedule(fn, this.ms);
     }
   };
 
@@ -108,13 +110,15 @@
 
   __extends(FluentTime.TimeLeap, FluentTime.TimeOut);
 
-  FluentTime.TimeOut.prototype.schedule = function(fn) {
+  // ### schedule
+  FluentTime.TimeOut.prototype.schedule = function(fn, timout) {
     var _this = this;
     this.timeout = setTimeout(function() {
       fn(_this);
     }, this.ms);
   };
 
+  // ### cancel
   FluentTime.TimeOut.prototype.cancel = function() {
     if (this.timeout) {
       clearTimeout(this.timeout);
@@ -133,12 +137,15 @@
   __extends(FluentTime.TimeOut, FluentTime.Interval);
 
   // ### schedule
-  FluentTime.Interval.prototype.schedule = function(fn) {
+  // executes and schedules next occurance of the func.
+  FluentTime.Interval.prototype.schedule = function(fn, timeout) {
     var _this = this;
+
     this.timeout = setTimeout(function() {
+      // increase the number of times the interval has occured.
       _this.times++;
-      // schedule next execution.
-      _this.schedule(fn);
+      // we keep track of when the timeout was executed.
+      var pre = Date.now();
       // only run the code
       // when not supposed to skip.
       if (!_this.skippingNext) {
@@ -149,11 +156,21 @@
       else {
         _this.skippingNext--;
       }
-    }, this.ms);
+
+      // calculate when the function should be run the next time, taking into account
+      // the time it took to run the function...
+      var nextOccurrance = Math.max(0, (_this.ms - (Date.now() - pre)));
+      // ... then use that number to schedule the next.
+      _this.schedule(fn, nextOccurrance);
+    }, timeout);
   };
 
   // ### skip
   FluentTime.Interval.prototype.skip = function(number) {
+    if (typeof(number) === 'undefined') {
+      number = 1;
+    }
+
     if (typeof(number) !== 'number' || number < 1) {
       throw new Error('You must provide a non negative number');
     }

@@ -17,10 +17,15 @@
     "url": "https://github.com/ullmark/fluent-time.js/issues"
   },
   "main": "fluent-time.js",
+  "scripts": {
+    "test": "mocha -R spec ./spec/"
+  },
   "dependencies": {},
   "devDependencies": {
     "mocha": "~1.6.0",
-    "should": "~1.2.1"
+    "should": "~1.2.1",
+    "grunt-simple-mocha": "~0.2.0",
+    "grunt-bump": "0.0.1"
   },
   "optionalDependencies": {},
   "engines": {
