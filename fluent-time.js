@@ -28,6 +28,8 @@
 
   // TimeLeap
   // --------
+  // the timeleap contains the logic of calculating minutes, hours etc.
+  // to milliseconds.
 
   FluentTime.TimeLeap = function(leap) {
     this.leap = leap;
@@ -35,6 +37,7 @@
   };
 
   // ### days
+  // adds the previously provided leap amount as days.
   FluentTime.TimeLeap.prototype.days = function(fn) {
     this.ms += this.leap * 86400000;
     this.leap = 0;
@@ -43,6 +46,7 @@
   };
 
   // ### hours
+  // adds the previously provided leap amount as hours.
   FluentTime.TimeLeap.prototype.hours = function(fn) {
     this.ms += this.leap * 3600000;
     this.leap = 0;
@@ -51,6 +55,7 @@
   };
 
   // ### minutes
+  // adds the previously provided leap amount as minutes.
   FluentTime.TimeLeap.prototype.minutes = function(fn) {
     this.ms += this.leap * 60000;
     this.leap = 0;
@@ -59,6 +64,7 @@
   };
 
   // ### seconds
+  // adds the previously provided leap amount as seconds.
   FluentTime.TimeLeap.prototype.seconds = function(fn) {
     this.ms += this.leap * 1000;
     this.leap = 0;
@@ -67,6 +73,7 @@
   };
 
   // ### milliseconds
+  // adds the previously provided leap amount as milliseconds.
   FluentTime.TimeLeap.prototype.milliseconds = function(fn) {
     this.ms += this.leap;
     this.leap = 0;
@@ -75,6 +82,7 @@
   };
 
   // ### and
+  // adds a new leap.
   FluentTime.TimeLeap.prototype.and = function(leap) {
     this.leap = leap;
     return this;
@@ -143,7 +151,7 @@
       // when not supposed to skip.
       if (!_this.skippingNext) {
         fn(_this);
-      } 
+      }
 
       // decrease the skip amount
       else {
