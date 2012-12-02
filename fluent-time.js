@@ -28,7 +28,7 @@
 
   // TimeLeap
   // --------
-  // 
+  // Contains the
 
   FluentTime.TimeLeap = function(leap) {
     this.leap = leap;
@@ -150,7 +150,7 @@
       // when not supposed to skip.
       if (!_this.skippingNext) {
         fn(_this);
-      } 
+      }
 
       // decrease the skip amount
       else {
@@ -166,6 +166,19 @@
   };
 
   // ### skip
+  // Skips the following **number** times of execution.
+  // example:
+  //
+  //     every(10).seconds(function(interval) {
+  //       // the 10:th time the code executes
+  //       // skip the following 5 times.
+  //       if (interval.times === 10) {
+  //         interval.skip(5);
+  //       }
+  //
+  //       // your interval code...
+  //     });
+  //
   FluentTime.Interval.prototype.skip = function(number) {
     if (typeof(number) === 'undefined') {
       number = 1;
@@ -177,6 +190,20 @@
 
     this.skippingNext += number;
     return this;
+  };
+
+  // ### to
+  // makes the interval have randomly picked timeout from the range
+  // for each timeout.
+  // example:
+  //
+  //     every(5).to(10).minutes(function() {
+  //       // runs this code somewhere in between every
+  //       // 5 to 10 minutes.
+  //     });
+  //
+  FluentTime.Interval.prototype.to = function(number) {
+
   };
 
   if (module && module.exports) {
