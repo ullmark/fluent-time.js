@@ -51,41 +51,37 @@ describe("Interval", function() {
 
     it("defaults to one skip if no number was provided", function(done) {
       var counter = 0;
-      every(10).milliseconds(function(interval) {
+      every(100).milliseconds(function(interval) {
         counter++;
-        interval.skip();
-
-        if (interval.times === 2) { 
-          interval.cancel();
+        if (interval.times === 1) {
+          interval.skip();
         }
       });
 
+      // wait 750 ms, since we skipped the second execution and it runs
+      // every 100 ms the counter should have been increased to 6
       setTimeout(function() {
-        counter.should.equal(1);
-      }, 50);
+        counter.should.equal(6);
+        done();
+      }, 750);
     });
 
     it("causes the function not to be executed the amount of times provided", function(done) {
       var counter = 0;
-      every(50).milliseconds(function(interval) {
+      every(100).milliseconds(function(interval) {
         counter++;
 
         // the second time it's been executed
         if (interval.times === 2) {
           // skip the next two intervals
-          interval.skip(2);
-        }
-
-        // the tenth time, cancel the inteval
-        if (interval.times === 10) {
-          interval.cancel();
+          interval.skip(3);
         }
       });
 
-      // wait 800 ms, then the interval should have been hit 10 times. (since it was canceled after that)
-      // but the counter should have only been increased 8 times.
+      // wait 800 ms, then the counter should have been increased 4 times. Because:
+      // In 800ms the function will be called 7 times but we skip 3.
       setTimeout(function() {
-        counter.should.equal(8);
+        counter.should.equal(4);
         done();
       }, 800);
     });

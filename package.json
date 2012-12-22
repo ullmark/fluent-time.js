@@ -1,8 +1,8 @@
 {
   "author": "Markus Ullmark",
   "name": "fluent-time",
-  "description": "a fluent api to datetime and ",
-  "version": "0.0.6",
+  "description": "a fluent api making it easier work with intervals and timeouts",
+  "version": "0.0.7",
   "keywords": [
     "util",
     "fluent",
@@ -25,7 +25,8 @@
     "mocha": "~1.6.0",
     "should": "~1.2.1",
     "grunt-simple-mocha": "~0.2.0",
-    "grunt-bump": "0.0.1"
+    "grunt-bump": "0.0.1",
+    "grunt-docco": "~0.1.2"
   },
   "optionalDependencies": {},
   "engines": {

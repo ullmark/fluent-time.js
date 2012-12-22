@@ -40,7 +40,9 @@ describe("TimeLeap", function() {
     var now = new Date(Date.now());
     var timeLeap = new FluentTime.TimeLeap(2).hours();
     var diff = timeLeap.occurs() - now;
-    diff.should.equal(7200000);
+    // we need check with a span since the EXACT ms can differ
+    // depending on cpu speed etc...
+    diff.should.be.within(7199000, 7200100);
   });
 
 });
