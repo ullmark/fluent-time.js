@@ -23,7 +23,6 @@ var every = FluentTime.every;
 ```
 
 ## intervals
-
 ```javascript
 every(5).seconds(function() {
   // code...
@@ -59,6 +58,9 @@ after(10).seconds(function() {
   
 });
 ```
+
+## Annotated Source
+
 ## License 
 
 (The MIT License)

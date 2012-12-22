@@ -10,6 +10,11 @@ module.exports = function(grunt) {
     lint: {
       files: ['grunt.js', 'fluent-time.js', '<simplemocha:all.src>']
     },
+    docco: {
+      app: {
+        src: ['fluent-time.js']
+      }
+    },
     simplemocha: {
       all: {
         src: 'spec/**/*.js',
@@ -57,6 +62,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-docco');
 
   // Default task.
   grunt.registerTask('default', 'lint simplemocha watch');
