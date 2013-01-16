@@ -1,4 +1,4 @@
-# fluent-time.js
+# fluent-time.js [![Build Status](https://secure.travis-ci.org/ullmark/fluent-time.js.png?branch=master)](http://travis-ci.org/ullmark/fluent-time.js)
 fluent time works as a wrapper around `setTimeout` and `setInterval` and aims to provide a simpler api for them.
 
 ## installation
