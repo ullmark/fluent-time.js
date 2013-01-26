@@ -7,7 +7,12 @@ fluent time works as a wrapper around `setTimeout` and `setInterval` and aims to
 npm install fluent-time
 ```
 
-#### clientside
+#### bower
+```
+bower install fluent-time
+```
+
+#### the old fashion way
 download `fluent-time.js` or `fluent-time.min.js` and include it.
 
 ## accessing the api.
