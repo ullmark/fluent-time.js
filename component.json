@@ -1,0 +1,5 @@
+{
+  "name": "fluent-time",
+  "version": "0.0.7",
+  "main": ["./fluent-time.js"],
+}
