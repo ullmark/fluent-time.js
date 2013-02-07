@@ -210,7 +210,7 @@
 
   // In an **AMD** module environment like node.js or when require.js
   // exist
-  if (typeof(module) !== 'undefined' && module.exports) {
+  if (typeof(module) !== 'undefined') {
     module.exports = FluentTime;
   }
 

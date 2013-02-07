@@ -1,5 +1,6 @@
-var every = require('../fluent-time.js').every;
-require('should');
+var amd       = typeof(require) !== 'undefined',
+    every     = amd ? require('../fluent-time.js').after : FluentTime.every,
+    expect    = amd ? require('chai').expect : chai.expect;
 
 describe("Interval", function() {
 
@@ -12,7 +13,7 @@ describe("Interval", function() {
     // after 350ms it should have executed three times...
     setTimeout(function() {
       interval.cancel();
-      counter.should.equal(3);
+      expect(counter).to.equal(3);
       done();
     }, 350);
   });
@@ -21,12 +22,12 @@ describe("Interval", function() {
     var counter = 0;
     var interval = every(100).milliseconds(function(interval) {
       counter++;
-      counter.should.equal(interval.times);
+      expect(counter).to.equal(interval.times);
     });
 
     setTimeout(function() {
       interval.cancel();
-      counter.should.equal(5);
+      expect(counter).to.equal(5);
       done();
     }, 550);
   });
@@ -41,7 +42,7 @@ describe("Interval", function() {
         .cancel();
 
       setTimeout(function() {
-        counter.should.equal(0);
+        expect(counter).to.equal(0);
         done();
       }, 15);
     });
@@ -61,7 +62,7 @@ describe("Interval", function() {
       // wait 750 ms, since we skipped the second execution and it runs
       // every 100 ms the counter should have been increased to 6
       setTimeout(function() {
-        counter.should.equal(6);
+        expect(counter).to.equal(6);
         done();
       }, 750);
     });
@@ -81,7 +82,7 @@ describe("Interval", function() {
       // wait 800 ms, then the counter should have been increased 4 times. Because:
       // In 800ms the function will be called 7 times but we skip 3.
       setTimeout(function() {
-        counter.should.equal(4);
+        expect(counter).to.equal(4);
         done();
       }, 800);
     });

@@ -27,6 +27,10 @@ module.exports = function(grunt) {
         }
       }
     },
+    mocha: {
+      // runs all html files in the test dir
+      all: [ 'spec/**/*.html' ]
+    },
     min: {
       dist: {
         src: ['<banner>', 'fluent-time.js'],
@@ -61,10 +65,11 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-docco');
 
   // Default task.
-  grunt.registerTask('default', 'lint simplemocha watch');
+  grunt.registerTask('default', 'lint simplemocha mocha watch');
 
 };

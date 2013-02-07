@@ -1,5 +1,6 @@
-var after = require('../fluent-time.js').after;
-require('should');
+var amd       = typeof(require) !== 'undefined',
+    after     = amd ? require('../fluent-time.js').after : FluentTime.after,
+    expect    = amd ? require('chai').expect : chai.expect;
 
 describe("Timeout", function() {
 
@@ -10,7 +11,7 @@ describe("Timeout", function() {
     });
 
     setTimeout(function() {
-      wasExecuted.should.equal(true);
+      expect(wasExecuted).to.be.true;
       done();
     }, 15);
   });
@@ -25,18 +26,20 @@ describe("Timeout", function() {
 
       setTimeout(function() {
         timeout.cancel();
-        wasExecuted.should.equal(false);
+        expect(wasExecuted).to.be.false;
         done();
       }, 10);
     });
 
     it("doesn't throw when canceling multiple times", function(done) {
       var timeout = after(10).milliseconds(function() {});
-      (function() {
+      expect(function() {
         timeout.cancel();
         timeout.cancel();
-      }).should.not.throw();
-      done();
+        setTimeout(function() {
+          done();
+        }, 0)
+      }).to.not.throw();
     });
 
   });
