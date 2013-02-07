@@ -1,5 +1,5 @@
 var amd       = typeof(require) !== 'undefined',
-    every     = amd ? require('../fluent-time.js').after : FluentTime.every,
+    every     = amd ? require('../fluent-time.js').every : FluentTime.every,
     expect    = amd ? require('chai').expect : chai.expect;
 
 describe("Interval", function() {
@@ -13,6 +13,7 @@ describe("Interval", function() {
     // after 350ms it should have executed three times...
     setTimeout(function() {
       interval.cancel();
+      console.log(counter);
       expect(counter).to.equal(3);
       done();
     }, 350);
