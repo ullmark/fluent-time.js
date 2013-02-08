@@ -1,8 +1,9 @@
-var amd       = typeof(require) !== 'undefined';
-var every     = amd ? require('../fluent-time.js').every : FluentTime.every;
-var expect    = amd ? require('chai').expect : chai.expect;
 
 describe("Interval", function() {
+
+  var amd       = typeof(require) !== 'undefined';
+  var every     = amd ? require('../fluent-time.js').every : FluentTime.every;
+  var expect    = amd ? require('chai').expect : chai.expect;
 
   it("executes the function on the provided interval", function(done) {
     var counter = 0;

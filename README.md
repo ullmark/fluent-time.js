@@ -12,7 +12,7 @@ npm install fluent-time
 bower install fluent-time
 ```
 
-#### the old fashion way
+#### regular include
 download `fluent-time.js` or `fluent-time.min.js` and include it.
 
 ## accessing the api.
@@ -64,7 +64,9 @@ after(10).seconds(function() {
 });
 ```
 
-## Annotated Source
+## Tests
+the tests are written in [mocha](http://visionmedia.github.com/mocha/) and are tested in both node 
+and browser using [phantomjs](http://phantomjs.org/) (although travis only runs the node version).
 
 ## License 
 

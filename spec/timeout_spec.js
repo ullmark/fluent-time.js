@@ -1,12 +1,13 @@
-var amd       = typeof(require) !== 'undefined';
-var afters    = amd ? require('../fluent-time.js').after : FluentTime.after;
-var expect    = amd ? require('chai').expect : chai.expect;
 
 describe("Timeout", function() {
 
+  var amd       = typeof(require) !== 'undefined';
+  var after     = amd ? require('../fluent-time.js').after : FluentTime.after;
+  var expect    = amd ? require('chai').expect : chai.expect;
+
   it("executes the callback", function(done) {
     var wasExecuted = false;
-    afters(10).milliseconds(function() {
+    after(10).milliseconds(function() {
       wasExecuted = true;
     });
 
@@ -20,7 +21,7 @@ describe("Timeout", function() {
 
     it("stops the execusion", function(done) {
       var wasExecuted = false;
-      var timeout = afters(30).milliseconds(function() {
+      var timeout = after(30).milliseconds(function() {
         wasExecuted = true;
       });
 
@@ -32,7 +33,7 @@ describe("Timeout", function() {
     });
 
     it("doesn't throw when canceling multiple times", function(done) {
-      var timeout = afters(10).milliseconds(function() {});
+      var timeout = after(10).milliseconds(function() {});
       expect(function() {
         timeout.cancel();
         timeout.cancel();

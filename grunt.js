@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['spec/**/*.js', 'fluent-time.js'],
-      tasks:'lint simplemocha min'
+      tasks:'lint min simplemocha mocha'
     },
     jshint: {
       options: {
@@ -70,6 +70,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docco');
 
   // Default task.
-  grunt.registerTask('default', 'lint simplemocha mocha watch');
+  grunt.registerTask('default', 'lint min simplemocha mocha watch');
 
 };
