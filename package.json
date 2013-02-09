@@ -2,7 +2,7 @@
   "author": "Markus Ullmark",
   "name": "fluent-time",
   "description": "a fluent api making it easier work with intervals and timeouts",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "keywords": [
     "util",
     "fluent",
