@@ -33,6 +33,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('watch', function() {
+  gulp.watch('fluent-time.js', ['jshint', 'scripts']);
 });
 
-gulp.task('default', ['scripts']);
+gulp.task('default', ['jshint', 'scripts', 'watch']);
