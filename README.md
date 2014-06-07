@@ -22,7 +22,15 @@ we don't want to pollute your global/module scope without asking, but it gives t
 ```javascript
 var every = require('fluent-time').every;
 ```
-#### clientside
+
+#### require.js
+```javascript
+define(['./path/to/fluent-time.js'], function(FluentTime) {
+  var every = FluentTime.every;
+});
+```
+
+#### browser 
 ```javascript
 var every = FluentTime.every;
 ```
@@ -63,10 +71,6 @@ after(10).seconds(function() {
   
 });
 ```
-
-## Tests
-the tests are written in [mocha](http://visionmedia.github.com/mocha/) and are tested in both node 
-and browser using [phantomjs](http://phantomjs.org/) (although travis only runs the node version).
 
 ## License 
 
