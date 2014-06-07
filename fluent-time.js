@@ -1,5 +1,21 @@
 
-(function () {
+// Fluent Time
+// ------------
+//
+
+
+// umd-module definition
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  }
+  else if (typeof exports === 'object') {
+    module.exports = factory();
+  }
+  else {
+    root.FluentTime = factory();
+  }
+}(this, function() {
 
   'use strict';
 
@@ -10,9 +26,6 @@
       child.prototype[key] = parent.prototype[key];
     }
   };
-
-  // Fluent Time
-  // ------------
 
   // our main object that exposes the starting points
   // of the fluent api.
@@ -31,6 +44,7 @@
   // ---------
   // Contains the calculations that transforms to *milliseconds* from
   // whatever time measurement that have been used.
+
   FluentTime.TimeLeap = function(leap) {
     this.leap = leap;
     this.ms = 0;
@@ -136,6 +150,7 @@
     if (this.timeout) {
       clearTimeout(this.timeout);
     }
+    return this;
   };
 
   // Interval
@@ -208,15 +223,6 @@
     return this;
   };
 
-  // In an **AMD** module environment like node.js or when require.js
-  // exist
-  if (typeof(module) !== 'undefined') {
-    module.exports = FluentTime;
-  }
+  return FluentTime;
+}));
 
-  // else just append it to the window
-  else {
-    window.FluentTime = FluentTime;
-  }
-
-}());

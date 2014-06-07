@@ -1,9 +1,7 @@
 
 describe("TimeLeap", function() {
-  
-  var amd       = typeof(require) !== 'undefined',
-      TimeLeap  = amd ? require('../fluent-time.js').TimeLeap : FluentTime.TimeLeap;
-      expect    = amd ? require('chai').expect : chai.expect;
+
+  var TimeLeap = FluentTime.TimeLeap;
 
   it("calculates correct on milliseconds", function() {
     expect(new TimeLeap(10).milliseconds().ms).to.equal(10);
