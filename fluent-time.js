@@ -46,7 +46,7 @@
   // whatever time measurement that have been used.
 
   FluentTime.TimeLeap = function(leap) {
-    this.leap = leap;
+    this.leap = leap || 1;
     this.ms = 0;
   };
 
@@ -59,6 +59,12 @@
     return this;
   };
 
+  // ### day
+  // alias for *days*.
+  FluentTime.TimeLeap.prototype.day = function(fn) {
+    return this.days(fn);
+  };
+
   // ### hours
   // appends the previous leap amount as *hours*.
   FluentTime.TimeLeap.prototype.hours = function(fn) {
@@ -66,6 +72,12 @@
     this.leap = 0;
     this.finalizeIfCallback(fn);
     return this;
+  };
+
+  // ### hour
+  // alias for *hours*.
+  FluentTime.TimeLeap.prototype.hour = function(fn) {
+    return this.hours(fn);
   };
 
   // ### minutes
@@ -77,6 +89,12 @@
     return this;
   };
 
+  // ### minute
+  // alias for *minutes*.
+  FluentTime.TimeLeap.prototype.minute = function(fn) {
+    return this.minutes(fn);
+  };
+
   // ### seconds
   // appends the previous leap amount as *seconds*
   FluentTime.TimeLeap.prototype.seconds = function(fn) {
@@ -86,6 +104,12 @@
     return this;
   };
 
+  // ### second
+  // alias for *seconds*.
+  FluentTime.TimeLeap.prototype.second = function(fn) {
+    return this.seconds(fn);
+  };
+
   // ### milliseconds
   // appends the previous leap amount as *milliseconds*
   FluentTime.TimeLeap.prototype.milliseconds = function(fn) {
@@ -93,6 +117,12 @@
     this.leap = 0;
     this.finalizeIfCallback(fn);
     return this;
+  };
+
+  // ### millisecond
+  // alias for *millisecond*.
+  FluentTime.TimeLeap.prototype.millisecond = function(fn) {
+    return this.milliseconds(fn);
   };
 
   // ### and
@@ -225,4 +255,3 @@
 
   return FluentTime;
 }));
-

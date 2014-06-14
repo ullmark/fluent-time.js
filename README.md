@@ -30,7 +30,7 @@ define(['./path/to/fluent-time.js'], function(FluentTime) {
 });
 ```
 
-#### browser 
+#### browser
 ```javascript
 var every = FluentTime.every;
 ```
@@ -44,6 +44,11 @@ every(5).seconds(function() {
 every(4).hours().and(2).minutes(function() {
   // code...
 });
+
+every().hour().and(10).seconds(function () {
+  // code...
+});
+
 ```
 
 ```javascript
@@ -68,11 +73,11 @@ every(5).minutes(function(interval) {
 ```javascript
 // runs the provided function after 10 seconds
 after(10).seconds(function() {
-  
+
 });
 ```
 
-## License 
+## License
 
 (The MIT License)
 
